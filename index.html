@@ -11,7 +11,7 @@
         <source src="https://files.catbox.moe/9dgyao.mp4" type="video/mp4">
         Browser Anda tidak mendukung video.
     </video>
-    <div class="container">
+    <div class="container" onclick="playAudio()">
         <div class="profile-card">
             <img src="https://files.catbox.moe/xj4if4.jpg" alt="Profile Picture" class="profile-pic">
             <h1>AKU DIMZ</h1>
@@ -24,7 +24,6 @@
                 <a href="https://about-unf.vercel.app/">ABOUT UNEKO FAMILY</a>
             </div>
         </div>
-        <button onclick="playAudio()">Putar Audio</button>
         <audio id="myAudio">
             <source src="https://files.catbox.moe/n03jf1.mp3" type="audio/mp3">
             Browser Anda tidak mendukung audio.
@@ -37,7 +36,9 @@
     <script>
         function playAudio() {
             const audio = document.getElementById('myAudio');
-            audio.play().catch(error => console.error("Audio gagal diputar:", error));
+            if (audio.paused) {
+                audio.play().catch(error => console.error("Audio gagal diputar:", error));
+            }
         }
     </script>
 </body>
